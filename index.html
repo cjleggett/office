@@ -26,11 +26,9 @@
         function getrand() {
             let top = episodes.length;
             var episode = episodes[Math.floor(Math.random() * top)];
-            console.log(episode);
             var name = episode["title"];
             var senum = episode["season"];
             var epnum = episode["episode"];
-            console.log(senum);
             document.getElementById('sn').innerHTML = "Season " + String(senum) + 
                                                       ", " + "Episode " + String(epnum) + ": " 
                                                       + name;
