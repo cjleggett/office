@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <head>
     <title>The Office Episode Chooser</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        .center {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+        text-align: center;
+        font-family: "American Typewriter", serif;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Welcome to the Office Episode Chooser!</h1>
-    <button onclick='getrand()'>Click here to select an episode!</button>
-    <h1 id='ename'></h1>
-    <h1 id='sn'></h1>
+    <h2 class='center'>Welcome to the Office Episode Chooser!</h2>
+    <div class='center'><button onclick='getrand()' class='center'>Click here to select an episode!</button></div>
+    <h1 class='center' id='sn'></h1>
 
+    <script type="text/javascript" src="episodes.js"></script>
     <script>
-        function getName(s, e) {
-            var request = new XMLHttpRequest();
-            let a = 'https://the-office-api.herokuapp.com/season'
-                                + '/' + String(s) + '/'
-                                + 'episode' + '/' + String(e);
-            request.open('GET', a);
-            console.log('here');
-            request.onload = function () {
-                alert("here");
-                var data = JSON.parse(this.response);
-                console.log(data);
-            }
-        }
-
         function getrand() {
-            let episodes = [6, 22, 25, 19, 28, 26, 26, 24, 25];
-            var senum = Math.floor(Math.random() * 9) ;
-            var epnum = Math.floor(Math.random() * episodes[senum]);
-            document.getElementById('sn').innerHTML = "Season " + String(senum + 1) + 
-                                                            ", " + "Episode " + String(epnum + 1) + ":";
-            getName(senum, epnum);
+            let top = episodes.length;
+            var episode = episodes[Math.floor(Math.random() * top)];
+            console.log(episode);
+            var name = episode["title"];
+            var senum = episode["season"];
+            var epnum = episode["episode"];
+            console.log(senum);
+            document.getElementById('sn').innerHTML = "Season " + String(senum) + 
+                                                      ", " + "Episode " + String(epnum) + ": " 
+                                                      + name;
         }
     </script>
 </body>
