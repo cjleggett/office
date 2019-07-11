@@ -5,4 +5,4 @@
 The index.html file implements a basic website in which a user can click a button to decide which episode of The Office
 they would like to watch.
 
-The site is available at: cjleggett.github.io/the_office_episode_chooser
+[Click Here](cjleggett.github.io/the_office_episode_chooser) to view the site.
